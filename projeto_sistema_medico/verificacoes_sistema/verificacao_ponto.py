@@ -92,7 +92,7 @@ def validar_ponto(medico, dia_inserido, horario_inserido):
     """
     Valida se o ponto pode ser batido no dia e horário informados.
     """
-    horarios = horarios_trabalho.get(medico['telefone'], {})
+    horarios = horarios_trabalho.get(medico['telefone'])
 
     if not horarios:
         print(f"Nenhum horário de trabalho definido para {medico['nome']}.")
