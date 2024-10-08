@@ -7,7 +7,7 @@ def mostrar_horarios(medico):
     Os horários são importados dos horarios cadastrados.
     """
     telefone = medico['telefone']
-    horarios = horarios_trabalho.get(telefone, {})
+    horarios = horarios_trabalho.get(telefone)
 
     if not horarios:
         print(
