@@ -8,10 +8,10 @@ def mostrar_informacoes_medico(medico):
     Utiliza as informações cadastradas dos medicos.
     """
     print('\n===== Informações do Médico =====')
-    print(f"Nome: {medico['nome']}")
-    print(f"Especialidade: {medico['especialidade']}")
-    print(f"Hospital: {medico['hospital']}")
-    print(f"Telefone: {medico['telefone']}")
+    print(f"Nome: {medico.nome}")
+    print(f"Especialidade: {medico.especialidade}")
+    print(f"Hospital: {medico.hospital}")
+    print(f"Telefone: {medico.telefone}")
     print('=================================\n')
 
     mostrar_menu_medico(medico)
