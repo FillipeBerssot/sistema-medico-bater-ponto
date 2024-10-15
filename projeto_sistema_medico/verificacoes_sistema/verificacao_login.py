@@ -2,15 +2,12 @@ import time
 
 from projeto_sistema_medico.medicos.medicos import medicos_cadastrados
 
-tentativas_maximas = 3
-telefone_maximo = 11
-senha_minima = 6
 
 class VerificacaoLogin:
-    def __init__(self, tentativas_maximas=3, telefone_maximo=11, senha_minima=6):
-        self.tentativas_maximas = tentativas_maximas
-        self.telefone_maximo = telefone_maximo
-        self.senha_minima = senha_minima
+    def __init__(self, **kwargs):
+        self.tentativas_maximas = kwargs.get('tentativas_maximas', 3)
+        self.telefone_maximo = kwargs.get('telefone_maximo', 11)
+        self.senha_minima = kwargs.get('senha_minima', 6)
 
     def verificar_telefone(self, telefone):
         return len(telefone) == self.telefone_maximo and telefone.isdigit()
@@ -27,23 +24,40 @@ class VerificacaoLogin:
         tentativas = 0
 
         while tentativas < self.tentativas_maximas:
-            print(f'\n===== Tentativa {tentativas + 1} de {self.tentativas_maximas} =====')
+            print(
+                f'\n===== Tentativa {tentativas + 1} '
+                f'de {self.tentativas_maximas} ====='
+            )
 
-            telefone = input('Digite seu telefone cadastrado (11 dígitos): ').strip()
+            telefone = input(
+                'Digite seu telefone cadastrado (11 dígitos): '
+            ).strip()
 
             if not self.verificar_telefone(telefone):
                 print('Erro: Telefone inválido. Deve conter 11 dígitos.\n')
                 tentativas += 1
-                print(f'Tentativas restantes: {self.tentativas_maximas - tentativas}')
+                print(
+                    f'Tentativas restantes: '
+                    f'{self.tentativas_maximas - tentativas}'
+                )
                 continue
 
-            medico = next((m for m in medicos_cadastrados if m.telefone == telefone), None)
+            medico = next(
+                (m for m in medicos_cadastrados if m.telefone == telefone),
+                None,
+            )
             if medico:
                 senha = input('Digite sua senha: ').strip()
                 if not self.verificar_senha(senha):
-                    print('Erro: Senha inválida. Deve ter pelo menos 6 caracteres.\n')
+                    print(
+                        'Erro: Senha inválida. Deve ter pelo menos 6 '
+                        'caracteres.\n'
+                    )
                     tentativas += 1
-                    print(f'Tentativas restantes: {self.tentativas_maximas - tentativas}')
+                    print(
+                        f'Tentativas restantes: '
+                        f'{self.tentativas_maximas - tentativas}'
+                    )
                 elif senha == medico.senha:
                     return medico
                 else:
@@ -54,6 +68,10 @@ class VerificacaoLogin:
                 tentativas += 1
 
             if tentativas == self.tentativas_maximas:
-                print('Você atingiu o número máximo de tentativas. Aguarde 10 segundos.\n')
+                print(
+                    'Você atingiu o número máximo de tentativas. '
+                    'Aguarde 10 segundos '
+                    'segundos.\n'
+                )
                 time.sleep(10)
         return None

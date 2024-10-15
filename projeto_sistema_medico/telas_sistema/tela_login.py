@@ -1,12 +1,17 @@
-from projeto_sistema_medico.telas_sistema.tela_medico import mostrar_informacoes_medico
-from projeto_sistema_medico.verificacoes_sistema.verificacao_login import VerificacaoLogin
+from projeto_sistema_medico.telas_sistema.tela_medico import (
+    mostrar_informacoes_medico,
+)
+from projeto_sistema_medico.verificacoes_sistema.verificacao_login import (
+    VerificacaoLogin,
+)
 
 
 class TelaLogin:
     def __init__(self):
         self.verificacao_login = VerificacaoLogin()
 
-    def menu(self):
+    @staticmethod
+    def menu():
         """
         Exibe o menu inicial para o médico logar ou sair com 2 opções.
         """
@@ -23,7 +28,8 @@ class TelaLogin:
     def login(self):
         """
         Realiza o login do médico.
-        Verifica as tentativas e, se tudo corresponder, exibe as informações do usuario.
+        Verifica as tentativas e, se tudo corresponder, exibe as informações
+        do usuario.
         """
         medico = self.verificacao_login.verificar_tentativas()
         if medico:

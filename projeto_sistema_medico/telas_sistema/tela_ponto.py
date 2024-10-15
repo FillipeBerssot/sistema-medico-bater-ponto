@@ -1,5 +1,9 @@
-from projeto_sistema_medico.verificacoes_sistema.verificacao_localizacao import VerificacaoLocalizacao
-from projeto_sistema_medico.verificacoes_sistema.verificacao_ponto import validar_ponto
+from projeto_sistema_medico.verificacoes_sistema.verificacao_localizacao import (
+    VerificacaoLocalizacao,
+)
+from projeto_sistema_medico.verificacoes_sistema.verificacao_ponto import (
+    validar_ponto,
+)
 
 
 def bater_ponto(medico):
@@ -12,7 +16,9 @@ def bater_ponto(medico):
     nome, telefone e hospital.
     """
     localizacao_checker = VerificacaoLocalizacao()
-    resultado_localizacao = localizacao_checker.verificar_localizacao(medico.telefone, medico.nome)
+    resultado_localizacao = localizacao_checker.verificar_localizacao(
+        medico.telefone, medico.nome
+    )
 
     if 'fora do raio' in resultado_localizacao:
         print(resultado_localizacao)
@@ -20,7 +26,9 @@ def bater_ponto(medico):
 
     print(resultado_localizacao)
 
-    dia_inserido = input('\nInsira o dia da semana (ex: Segunda-feira): ').strip()
+    dia_inserido = input(
+        '\nInsira o dia da semana (ex: Segunda-feira): '
+    ).strip()
     horario_inserido = input('Insira o horário atual (ex: 08:00): ').strip()
 
     validar_ponto(medico, dia_inserido, horario_inserido)

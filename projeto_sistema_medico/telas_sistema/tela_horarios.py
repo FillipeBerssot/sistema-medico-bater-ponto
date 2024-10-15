@@ -10,14 +10,12 @@ def mostrar_horarios(medico):
     horarios = horarios_trabalho.get(telefone)
 
     if not horarios:
-        print(
-            f"\nNenhum horário de trabalho definido para {medico.nome}.\n"
-        )
+        print(f'\nNenhum horário de trabalho definido para {medico.nome}.\n')
         return
 
     print(
-        f"\n===== Horários de Trabalho de {medico.nome} "
-        f"no {medico.hospital} ====="
+        f'\n===== Horários de Trabalho de {medico.nome} '
+        f'no {medico.hospital} ====='
     )
 
     for dia, horario in horarios.items():

@@ -95,7 +95,7 @@ def validar_ponto(medico, dia_inserido, horario_inserido):
     horarios = horarios_trabalho.get(medico.telefone)
 
     if not horarios:
-        print(f"Nenhum horário de trabalho definido para {medico.nome}.")
+        print(f'Nenhum horário de trabalho definido para {medico.nome}.')
         return
 
     if not validar_formato_horario(horario_inserido):
@@ -112,15 +112,13 @@ def validar_ponto(medico, dia_inserido, horario_inserido):
         return
 
     if dia_padronizado not in horarios:
-        print(f"{medico.nome} não trabalha em {dia_padronizado}.")
+        print(f'{medico.nome} não trabalha em {dia_padronizado}.')
         return
 
     horario_medico = horarios[dia_padronizado]
 
     if validar_horario(horario_medico, horario_inserido):
-        print(
-            f"\nPonto registrado para {medico.nome} no {medico.hospital}"
-        )
+        print(f'\nPonto registrado para {medico.nome} no {medico.hospital}')
         print(f'Dia: {dia_padronizado}')
         print(f'Horário: {horario_inserido}')
         print(f'Horário de trabalho: {horario_medico}')
