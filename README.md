@@ -1,7 +1,7 @@
 
 # Sistema Médico de Bater Ponto
 
-Este é um projeto de estudo em Python que simula um sistema de controle de ponto médico. O sistema permite que médicos façam login, batam ponto e verifiquem se estão dentro do raio permitido do hospital, entre outras funcionalidades. O projeto visa praticar habilidades de desenvolvimento em Python com foco em organização de código, modularização e boas práticas.
+Este é um projeto de estudo em Python que simula um mini sistema de controle de ponto médico. O sistema permite que médicos façam login, batam ponto e verifiquem se estão dentro do raio permitido do hospital, entre outras funcionalidades. O projeto visa praticar habilidades de desenvolvimento em Python com foco em organização de código, modularização e boas práticas.
 
 ## Funcionalidades
 
