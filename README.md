@@ -36,7 +36,7 @@ projeto_sistema_medico/
 
 1. Clone o repositório para sua máquina local:
    ```bash
-   git clone https://github.com/FillipeBerssot/sistema-medico-bater-ponto
+   git clone https://github.com/FillipeBerssot/sistema-medico-bater-ponto.git
    ```
 
 2. Acesse o diretório do projeto:
